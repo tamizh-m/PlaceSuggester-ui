@@ -17,13 +17,12 @@
   <form (ngSubmit)="onSubmit(locationForm)" #locationForm="ngForm" ngNativeValidate >
     <div class="row">
       <div class="mb-3 col input-group-lg">
-
         <input type="location" class="form-control textB" id="location" aria-describedby="emailHelp"
           placeholder="Enter the location..."  name="location" style="background-color: rgb(197, 204, 204)" ngModel >
       </div>
-      <a style="margin-left: 90px; margin-top: -15px; margin-bottom: 20px; font-size: 80%; color: blue; text-decoration: underline;" (click)="getLocation()">Get my current location</a>
+      <a style="margin-left: 40px; margin-top: -15px; margin-bottom: 20px; font-size: 80%; color: blue; text-decoration: underline;" (click)="getLocation()">Get my current location</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle btn-sm" style="margin-left: 110px; margin-bottom: 20px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle btn-sm" style="margin-left: 40px; margin-bottom: 20px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           Type  
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -50,7 +49,6 @@
       <div style="text-align:center;">
       <input type="submit" class="btn " value="Submit" style="margin-bottom: 2%; background-color: mediumvioletred; color: white;">
     </div>
-
     </div>
   </form>
   
