@@ -12,7 +12,7 @@ app.use(cors({
       if (allowedOrigins.includes(origin)) {
         callback(null, true) 
       } else {
-        callback(new Error(`Origin: ${origin} is now allowed`))
+        callback(new Error(`Origin: is now allowed`))
       }
     }
   }));
