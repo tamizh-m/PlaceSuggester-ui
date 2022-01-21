@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
-  },
+  }
+  ,
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.0.0",
@@ -41,5 +42,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.4.3"
-  }
+  },
+   "engines" : { "node" : ">=0.12" } 
 }
