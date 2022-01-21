@@ -1,28 +1,15 @@
 //Install express server
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
 
 const app = express();
 
-const allowedOrigins = ['https://place-suggester.herokuapp.com'];
-app.use(cors({
-    credentials: true,
-    origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true) 
-      } else {
-        callback(new Error(`Origin: is now allowed`))
-      }
-    }
-  }));
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/road-trip-planner'));
+app.use(express.static('./dist/angular-app-heroku'));
 
-app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/road-trip-planner/index.html'));
-});
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/angular-app-heroku/'}),
+);
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 8080);
