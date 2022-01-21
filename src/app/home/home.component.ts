@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
   results: Result[];
   itemCheck :any;
   showSearch : boolean;
-  loading :boolean = false;;
+  loading :boolean = false;
+  error: any;
+
   lat : number;
   lng : number;
   showAlert : boolean;
@@ -34,6 +36,7 @@ export class HomeComponent implements OnInit {
     this.location = locationForm.value.location;
     this.sendRequest();
   }
+
 
   keyword = 'name';
   public type = [
@@ -145,6 +148,7 @@ export class HomeComponent implements OnInit {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position) => {
             if (position) {
+              this.error = null;
               console.log("Latitude: " + position.coords.latitude +
                 "Longitude: " + position.coords.longitude);
               this.lat = position.coords.latitude;
@@ -153,7 +157,10 @@ export class HomeComponent implements OnInit {
               console.log(this.lat);
             }
           },
-            (error) => console.log(error));
+            (error) => this.error=error);
+            if(this.error!=null){
+              this.showAlert = false;
+            }
         } else {
           alert("Geolocation is not supported by this browser.");
         }

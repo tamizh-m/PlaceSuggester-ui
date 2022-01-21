@@ -6,6 +6,9 @@
   <div *ngIf="showAlert" class="alert alert-info" style="width:500px; margin:0 auto;" role="alert">
     Your location is recorded, Please select the type and submit!
   </div>
+  <div *ngIf="error" class="alert alert-danger" style="width:500px; margin:0 auto;" role="alert">
+  Could not access your location, Please enable location services and retry
+  </div>
   <div class="container2">
   <div class="white-box ">
   <div style="text-align: center; margin-top: 20px; font-family: 'Lucida Sans'; margin-bottom: 40px;">
