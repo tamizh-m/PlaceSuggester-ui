@@ -1,0 +1,77 @@
+
+
+  .textB {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 90%;
+  font-style: italic;
+}
+
+.image{
+  height:25cm; background-size:cover; width:auto;
+  background-image:url('https://i.ibb.co/NZDj8cL/00000000383.jpg');
+  background-position:30% 70%;
+  
+}
+
+.white-box {
+  background-color: white;
+  color: black;
+  padding: .001%;
+  border-radius: 8px;
+
+}
+
+.white-box2 {
+  background-color: white;
+  color: black;
+  padding: .001%;
+  border-radius: 20px;
+}
+
+.container1 {
+  float: right;
+  width:50%;
+  margin-right: 30px;
+  margin-top: 40px;
+}
+
+.container2 {
+  float: left;
+  width:34%;
+  margin-left: 30px;
+  margin-top: 40px;
+  
+}
+
+.displayInline {
+  display: inline;
+   word-wrap: break-word;
+}
+
+.displayInline2{
+  display: inline;
+  word-wrap: break-word;
+  color:rgb(24, 240, 60)
+}
+
+.displayInline3{
+  display: inline;
+  word-wrap: break-word;
+  color:red
+}
+
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+  text-decoration: none;
+  color: initial;
+}

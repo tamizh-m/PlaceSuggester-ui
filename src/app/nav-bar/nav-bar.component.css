@@ -1,0 +1,11 @@
+img{
+    width: 8cm;
+
+}
+.displayInline {
+    display: inline;
+     word-wrap: break-word;
+  }
+
+  a { color: inherit; } 
+ 

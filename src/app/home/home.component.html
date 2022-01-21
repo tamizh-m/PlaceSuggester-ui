@@ -1,0 +1,86 @@
+<div class="image">
+  <app-nav-bar></app-nav-bar>
+  <div style="text-align: center; margin-top: 2%; font-family: 'Abril Fatface'; color: white;">
+    <h1>Looking for a place to hangout?</h1>
+  </div>
+  <div *ngIf="showAlert" class="alert alert-info" style="width:500px; margin:0 auto;" role="alert">
+    Your location is recorded, Please select the type and submit!
+  </div>
+  <div class="container2">
+  <div class="white-box ">
+  <div style="text-align: center; margin-top: 20px; font-family: 'Lucida Sans'; margin-bottom: 40px;">
+    <h5>Get nearby place suggestions</h5>
+  </div>
+  <form (ngSubmit)="onSubmit(locationForm)" #locationForm="ngForm" ngNativeValidate >
+    <div class="row">
+      <div class="mb-3 col input-group-lg">
+
+        <input type="location" class="form-control textB" id="location" aria-describedby="emailHelp"
+          placeholder="Enter the location..."  name="location" style="background-color: rgb(197, 204, 204)" ngModel >
+      </div>
+      <a style="margin-left: 90px; margin-top: -15px; margin-bottom: 20px; font-size: 80%; color: blue; text-decoration: underline;" (click)="getLocation()">Get my current location</a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle btn-sm" style="margin-left: 110px; margin-bottom: 20px;" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Type  
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <div class = "ng-autocomplete">
+            <ng-autocomplete
+            [data]="type"
+            [searchKeyword]="keyword"
+            placeholder="Enter the type of place"
+            (selected)='selectEvent($event)'
+            [itemTemplate]="itemTemplate"
+            [notFoundTemplate]="notFoundTemplate">
+          </ng-autocomplete>
+
+          <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.name"></a>
+          </ng-template>
+        
+          <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+          </ng-template>
+        </div>
+        </ul>
+      </div>
+      <div style="text-align:center;">
+      <input type="submit" class="btn " value="Submit" style="margin-bottom: 2%; background-color: mediumvioletred; color: white;">
+    </div>
+
+    </div>
+  </form>
+  
+</div>
+</div>
+<div *ngIf="loading" class="spinner-border text-primary" role="status" style="margin-left: 200px; margin-top: 200px;">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div  class=container1>
+<div class = "white-box2" *ngIf=showSearch >
+  <form>
+  <ul class="list-group" *ngFor = "let result of results | slice:0:6">
+    <div *ngIf = "result">
+    <li class="list-group-item">
+     <h5 class= "displayInline" style="font-family: 'Lucida Sans';"  >{{result.name}}</h5>
+     <p class= "displayInline" style="font-family: Garamond;"> (Rating - {{result.rating}})</p>
+     <p class = "displayInline2" style="font-family: Garamond;" *ngIf = "result.opening_hours != null && result.opening_hours.open_now"> Open </p>
+     <p class = "displayInline3" style="font-family: Garamond;" *ngIf = "result.opening_hours != null && !result.opening_hours.open_now"> Closed </p>
+     <p style="font-family: Garamond; font-size: 20px;">
+       {{result.vicinity}}
+     </p>
+  <a href = {{result.url}} target="_blank"> Open in Google Maps
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+    </svg>
+  </a>
+    </li>
+  </div>
+    </ul>
+  </form>
+</div>
+
+</div>
+
+</div>
+
