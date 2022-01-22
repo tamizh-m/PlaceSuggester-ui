@@ -132,7 +132,7 @@ export class HomeComponent implements OnInit {
         this.response = data;
           this.results = this.response.results;
           this.results.forEach(result => {
-            result.url = "http://maps.google.com/?q="+result.name+","+this.location;
+            result.url = "http://maps.google.com/?q="+result.name+","+result.vicinity;
           });
           this.results.sort((a, b) => (a.user_ratings_total > b.user_ratings_total) ? -1 :  1 );
           this.showSearch = true;
